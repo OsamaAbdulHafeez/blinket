@@ -10,7 +10,7 @@ export const uploadAvatar = async (req, res) => {
 
     const uplaod = await uploadImageCloudinary(image);
     const uploadUser = await UserModel.findByIdAndUpdate({_id:userId},{
-        avatar:uplaod?.url
+        avatar: uplaod.url
     })
 
     return res.status(OK).json({
@@ -19,7 +19,7 @@ export const uploadAvatar = async (req, res) => {
       success: true,
       data: {
         _id:userId,
-        avatar:uploadUser.avatar
+        avatar:uplaod.url
       },
     });
   } catch (error) {

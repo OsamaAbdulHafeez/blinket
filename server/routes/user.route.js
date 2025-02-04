@@ -5,7 +5,11 @@ import { registerNewUser } from "../controllers/userController/registerNewUser.j
 import { verifyEmail } from "../controllers/userController/verifyEmail.js";
 import { loginUser } from "../controllers/userController/loginUser.js";
 import { uploadAvatar } from "../controllers/userController/uploadAvatar.js";
+import { updateUser } from "../controllers/userController/updateUser.js";
 import upload from "../middleware/multer.js";
+import { forgotPassword } from "../controllers/userController/forgotPassword.js";
+import { forgotPasswordOtpVerify } from "../controllers/userController/forgotPasswordOtpVerify.js";
+import { resetPassword } from "../controllers/userController/resetPassword.js";
 
 const userRouter = Router()
 
@@ -14,5 +18,9 @@ userRouter.post("/verify-email",verifyEmail)
 userRouter.post("/login",loginUser)
 userRouter.get("/logout",auth,logoutUser)
 userRouter.get("/upload-avatar",auth,upload.single('avatar'),uploadAvatar)
+userRouter.put("/update",auth,updateUser)
+userRouter.put("/forgot-password",forgotPassword)
+userRouter.post("/forgot-password-otp-verify",forgotPasswordOtpVerify)
+userRouter.put("/reset-password",resetPassword)
 
 export default userRouter
