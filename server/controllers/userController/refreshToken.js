@@ -1,6 +1,6 @@
-import { FORBIDDEN, INTERNALERROR } from "../constants/httpStatus.js";
+import { FORBIDDEN, INTERNALERROR, OK } from "../../constants/httpStatus.js";
 import jwt from "jsonwebtoken";
-import { responseMessages } from "../constants/responseMessages.js";
+import { responseMessages } from "../../constants/responseMessages.js";
 import { generateAccessToken } from "../../utils/generateAccessToken.js";
 export const refreshToken = async (req, res, next) => {
   try {

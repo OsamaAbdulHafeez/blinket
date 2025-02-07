@@ -47,6 +47,8 @@ const LoginPage = () => {
           password: "",
         });
         router.push('/')
+        localStorage.setItem('accessToken',response?.data?.data?.accessToken)
+        localStorage.setItem('refreshToken',response?.data?.data?.refreshToken)
       }
     } catch (error) {
       AxiosToastError(error);

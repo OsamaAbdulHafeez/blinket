@@ -21,5 +21,9 @@ const summary = {
         url:'user/reset-password',
         method:'put'
     },
+    refresh_token:{
+        url:'user/refresh-token',
+        method:'post'
+    },
 }
 export default summary

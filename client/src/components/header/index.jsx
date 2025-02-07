@@ -7,11 +7,13 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { useMobile } from "@/hooks/useMobile";
 import { usePathname } from "next/navigation";
 import { BsCart4 } from "react-icons/bs";
+import { useSelector } from "react-redux";
 const Header = () => {
   const location = usePathname();
   const [isMobile] = useMobile();
   const isSearch = location === "/search";
-
+  const user = useSelector(state=>state.user)
+  console.log(user,"user")
   return (
     <header className="h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white">
       {!(isSearch && isMobile) && (

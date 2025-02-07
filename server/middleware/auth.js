@@ -1,4 +1,4 @@
-import {FORBIDDEN, INTERNALERROR,} from "../constants/httpStatus.js"
+import {FORBIDDEN, INTERNALERROR, UNAUTHORIZED,} from "../constants/httpStatus.js"
 import jwt from "jsonwebtoken"
 import { responseMessages } from "../constants/responseMessages.js"
 export const auth = async(req,res,next) =>{

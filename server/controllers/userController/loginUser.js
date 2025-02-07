@@ -39,6 +39,10 @@ export const loginUser = async(req,res) =>{
 
         const checkPassword = await bcryptjs.compare(password,user.password)
 
+        const loginUser = await UserModel.findByIdAndUpdate(user?._id,{
+            last_login_date: new Date()
+        })
+
         if(!checkPassword){
             return res.status(FORBIDDEN).json({
                 message : responseMessages.WRONG_PASSWORD,

@@ -22,6 +22,7 @@ export const responseMessages = {
     OTP_SUCCESSFULLY:"OTP Verify Successfully",
     PASSWORD_CONFIRMPASSWORD_NOTSAME: "Password and Confiem-Password are not same",
     PASSWORD_UPDATE : "Password Update Successfully",
-    REFRESHTOKEN:"Refresh Token"
+    REFRESHTOKEN:"Refresh Token",
+    USER_DETAILS:"Current User Details"
 }
 

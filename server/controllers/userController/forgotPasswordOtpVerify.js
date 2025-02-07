@@ -40,6 +40,10 @@ export const forgotPasswordOtpVerify = async(req,res) =>{
             })
         }
 
+        const updateUser = await UserModel.findByIdAndUpdate(user?._id,{
+            forgot_password_otp:"",
+            forgot_password_expiry:""
+        })
         return res.status(OK).json({
             message:responseMessages.OTP_SUCCESSFULLY,
             error:false,
