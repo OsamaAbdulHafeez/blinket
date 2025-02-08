@@ -1,14 +1,18 @@
 "use client";
 import summary from "@/common/summaryAPI";
+import { setUserDetails } from "@/redux/userSlice";
 import Axios from "@/utils/Axios";
 import { AxiosToastError } from "@/utils/AxiosToastError";
+import fetchUserDetails from "@/utils/fetchUserDetails";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { FaRegEyeSlash } from "react-icons/fa6";
 import { FaRegEye } from "react-icons/fa6";
+import { useDispatch } from "react-redux";
 const LoginPage = () => {
+  const dispatch = useDispatch()
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -49,6 +53,8 @@ const LoginPage = () => {
         router.push('/')
         localStorage.setItem('accessToken',response?.data?.data?.accessToken)
         localStorage.setItem('refreshToken',response?.data?.data?.refreshToken)
+        const fetch = await fetchUserDetails()
+        dispatch(setUserDetails(fetch.data))
       }
     } catch (error) {
       AxiosToastError(error);

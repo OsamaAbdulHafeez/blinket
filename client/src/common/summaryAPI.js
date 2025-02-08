@@ -25,5 +25,13 @@ const summary = {
         url:'user/refresh-token',
         method:'post'
     },
+    user_details:{
+        url:'user/user-details',
+        method:'get'
+    },
+    logout_user:{
+        url:'user/logout',
+        method:'get'
+    },
 }
 export default summary

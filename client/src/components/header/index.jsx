@@ -7,13 +7,26 @@ import { FaRegCircleUser } from "react-icons/fa6";
 import { useMobile } from "@/hooks/useMobile";
 import { usePathname } from "next/navigation";
 import { BsCart4 } from "react-icons/bs";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import fetchUserDetails from "@/utils/fetchUserDetails";
+import { setUserDetails } from "@/redux/userSlice";
+import UserMenu from "../userMenu";
 const Header = () => {
   const location = usePathname();
   const [isMobile] = useMobile();
+  const dispatch = useDispatch()
   const isSearch = location === "/search";
   const user = useSelector(state=>state.user)
   console.log(user,"user")
+  useEffect(()=>{
+    const fetch = async() =>{
+      console.log("Hello")
+      const fetch = await fetchUserDetails()
+      dispatch(setUserDetails(fetch.data))
+    }
+    fetch()
+  },[])
   return (
     <header className="h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white">
       {!(isSearch && isMobile) && (
@@ -52,7 +65,11 @@ const Header = () => {
               <FaRegCircleUser size={26} />
             </div>
             <div className="hidden lg:flex items-center gap-10">
-              <Link href={"/login"} className="text-lg px-2">Login</Link>
+              {user?._id ? (
+                <UserMenu/>
+              ) : (
+                <Link href={"/login"} className="text-lg px-2">Login</Link>
+              )}
               <button className="flex items-center gap-2 px-3 py-3 bg-green-700 hover:bg-green-800 rounded text-white">
                 <div className="animate-bounce">
                   <BsCart4 size={26} />
