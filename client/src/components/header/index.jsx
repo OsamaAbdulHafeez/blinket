@@ -5,7 +5,7 @@ import Link from "next/link";
 import SearchBox from "../searchBox";
 import { FaRegCircleUser } from "react-icons/fa6";
 import { useMobile } from "@/hooks/useMobile";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { BsCart4 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
@@ -16,17 +16,25 @@ const Header = () => {
   const location = usePathname();
   const [isMobile] = useMobile();
   const dispatch = useDispatch()
+  const router = useRouter()
   const isSearch = location === "/search";
   const user = useSelector(state=>state.user)
-  console.log(user,"user")
+
   useEffect(()=>{
     const fetch = async() =>{
-      console.log("Hello")
       const fetch = await fetchUserDetails()
-      dispatch(setUserDetails(fetch.data))
+      dispatch(setUserDetails(fetch?.data))
     }
     fetch()
   },[])
+
+  const handleMobileUser = () =>{
+      if(!user?._id){
+        router.push('/login')
+        return
+      }
+      router.push('/user')
+  }
   return (
     <header className="h-24 lg:h-20 lg:shadow-md sticky top-0 z-40 flex flex-col justify-center gap-1 bg-white">
       {!(isSearch && isMobile) && (
@@ -61,7 +69,7 @@ const Header = () => {
 
           {/**login and my cart */}
           <div className="">
-            <div className="text-neutral-600 lg:hidden">
+            <div className="text-neutral-600 lg:hidden" onClick={handleMobileUser}>
               <FaRegCircleUser size={26} />
             </div>
             <div className="hidden lg:flex items-center gap-10">
