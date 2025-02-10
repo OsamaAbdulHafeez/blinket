@@ -37,10 +37,10 @@ const UserMenuList = () => {
       </div>
       <Divider />
       <div className="text-sm grid gap-1">
-        <Link href={""} className="px-2 hover:bg-orange-200 py-1">
+        <Link href={"/dashboard/myorders"} className="px-2 hover:bg-orange-200 py-1">
           My Orders
         </Link>
-        <Link href={""} className="px-2 hover:bg-orange-200 py-1">
+        <Link href={"/dashboard/address"} className="px-2 hover:bg-orange-200 py-1">
           Save Address
         </Link>
         <button

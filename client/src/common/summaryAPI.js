@@ -33,5 +33,9 @@ const summary = {
         url:'user/logout',
         method:'get'
     },
+    upload_avatar:{
+        url:'user/upload-avatar',
+        method:'put'
+    },
 }
 export default summary

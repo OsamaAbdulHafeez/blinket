@@ -34,6 +34,9 @@ export const userSlice = createSlice({
         state.orderHistory = action.payload?.orderHistory,
         state.role = action.payload?.role
       },
+      updatedAvatar:(state,action)=>{
+        state.avatar = action.payload?.avatar
+      },
       logout: (state,action) => {
         state._id = "",
         state.name = "",
@@ -52,6 +55,6 @@ export const userSlice = createSlice({
   })
   
   // Action creators are generated for each case reducer function
-  export const { setUserDetails, logout } = userSlice.actions
+  export const { setUserDetails,updatedAvatar, logout } = userSlice.actions
   
   export default userSlice.reducer
