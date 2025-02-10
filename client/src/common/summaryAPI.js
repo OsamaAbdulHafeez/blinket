@@ -37,5 +37,9 @@ const summary = {
         url:'user/upload-avatar',
         method:'put'
     },
+    update_user_details:{
+        url:'user/update',
+        method:'put'
+    },
 }
 export default summary

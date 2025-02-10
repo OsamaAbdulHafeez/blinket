@@ -20,7 +20,7 @@ const UserMenu = () => {
       {openUserMenu && (
         <div className="absolute right-0 top-12">
           <div className="bg-white rounded p-4 min-w-52 lg:shadow-lg">
-            <UserMenuList />
+            <UserMenuList close={()=>setOpenUserMenu(false)}/>
           </div>
         </div>
       )}
