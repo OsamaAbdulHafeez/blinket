@@ -41,5 +41,13 @@ const summary = {
         url:'user/update',
         method:'put'
     },
+    upload_image:{
+        url:'file/upload-image',
+        method:'post'
+    },
+    upload_image:{
+        url:'category/add-category',
+        method:'post'
+    },
 }
 export default summary

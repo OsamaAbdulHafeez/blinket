@@ -23,6 +23,8 @@ export const responseMessages = {
     PASSWORD_CONFIRMPASSWORD_NOTSAME: "Password and Confiem-Password are not same",
     PASSWORD_UPDATE : "Password Update Successfully",
     REFRESHTOKEN:"Refresh Token",
-    USER_DETAILS:"Current User Details"
+    USER_DETAILS:"Current User Details",
+    REQUIRED_FIELD:"Enter Required Fields",
+    CREATED_CATEGORY:"Category Created Successfully"
 }
 

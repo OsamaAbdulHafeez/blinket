@@ -66,7 +66,7 @@ const ProfilePage = () => {
       {/* Profile Picture */}
       <div className="w-20 h-20 flex items-center justify-center rounded-full overflow-hidden">
         {user.avatar ? (
-          <Image src={user?.avatar} alt="image" height={80} width={80} />
+          <Image src={user?.avatar} alt="image" height={100} width={100} />
         ) : (
           <FaRegUserCircle size={65} />
         )}
